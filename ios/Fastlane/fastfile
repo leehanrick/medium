@@ -1,0 +1,10 @@
+desc "Deploy a new build to Testflight"
+lane :beta do
+  Dir.chdir "../.." do
+    sh("flutter", "packages", "get")
+    sh("flutter", "clean")
+    sh("flutter", "build", "ios", "--release", "--no-codesign")
+  end
+  build_ios_app(scheme: "MyApp")
+  upload_to_testflight
+end
