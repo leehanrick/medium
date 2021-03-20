@@ -23,4 +23,4 @@ workflows:
       - beta_deploy:
           filters:
             branches:
-              only: beta
+              only: master
